@@ -22,7 +22,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Replicating files
-        uses: derberg/copy-files-to-other-repositories@v1.0.0
+        uses: hairmare/copy-files-to-other-repositories@recursive-readdir
         with:
           github_token: ${{ secrets.ORGA_USER_TOKEN }}
           patterns_to_include: "node-commons"
