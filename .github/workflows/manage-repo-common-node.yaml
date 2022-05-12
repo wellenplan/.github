@@ -28,6 +28,7 @@ jobs:
           patterns_to_include: "node-commons"
           topics_to_include: "nodejs"
           destination: "./"
+          branches: "main"
           committer_username: wellenplan-bot
           committer_email: noreply@github.com
           commit_message: "chore: update Wellenplan Node commons"
