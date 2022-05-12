@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
     paths:
+      - ".github/workflows/manage-repo-common-node.yaml"
       - "common/node/"
   workflow_dispatch:
     inputs:
@@ -24,7 +25,7 @@ jobs:
         uses: derberg/copy-files-to-other-repositories@v1.0.0
         with:
           github_token: ${{ secrets.ORGA_USER_TOKEN }}
-          patterns_to_include: "common/node/"
+          patterns_to_include: "common/node/**"
           topics_to_include: "nodejs"
           destination: "./"
           committer_username: wellenplan-bot
