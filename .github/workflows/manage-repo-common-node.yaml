@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/manage-repo-common-node.yaml"
-      - "common/node/"
+      - "common/node/**"
   workflow_dispatch:
     inputs:
       repo_name:
