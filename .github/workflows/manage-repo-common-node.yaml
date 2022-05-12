@@ -1,0 +1,32 @@
+name: Manage Wellenplan Node Commons
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "common/node/"
+  workflow_dispatch:
+    inputs:
+      repo_name:
+        description: |
+          You can specify the repository's name where files should be pushed manually, as long as workflow settings do not ignore the repository.
+          If you do not specify the exact repository name, the workflow will try to replicate all missing changes to all repositories.
+        required: false
+
+jobs:
+  replicate_directus_common:
+    name: Wellenplan Node commons
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Replicating files
+        uses: derberg/copy-files-to-other-repositories@v1.0.0
+        with:
+          github_token: ${{ secrets.ORGA_USER_TOKEN }}
+          patterns_to_include: "common/node/"
+          topics_to_include: "nodejs"
+          destination: "./"
+          committer_username: wellenplan-bot
+          committer_email: noreply@github.com
+          commit_message: "chore: update Wellenplan Node commons"
