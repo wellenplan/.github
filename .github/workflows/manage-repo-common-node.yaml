@@ -30,6 +30,7 @@ jobs:
         with:
           github_token: ${{ secrets.ORGA_USER_TOKEN }}
           patterns_to_include: "common/node/"
+          dispatch_root: "common/node"
           topics_to_include: "nodejs"
           destination: "./"
           committer_username: wellenplan-bot
