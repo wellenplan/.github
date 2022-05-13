@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/manage-repo-common-node.yaml"
-      - "node-commons/**"
+      - "common/node/**"
   workflow_dispatch:
     inputs:
       repo_name:
@@ -22,13 +22,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Replicating files
-        uses: hairmare/copy-files-to-other-repositories@recursive-readdir
+        #uses: hairmare/copy-files-to-other-repositories@recursive-readdir
+        uses: derberg/copy-files-to-other-repositories@v1.0.1
         with:
           github_token: ${{ secrets.ORGA_USER_TOKEN }}
-          patterns_to_include: "node-commons"
+          patterns_to_include: "common/node/"
           topics_to_include: "nodejs"
           destination: "./"
-          branches: "main"
+          branches: "^main$"
           committer_username: wellenplan-bot
           committer_email: noreply@github.com
           commit_message: "chore: update Wellenplan Node commons"
