@@ -22,14 +22,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Replicating files
+        # TODO: get rid of fork once this is merged:
+        # - https://github.com/derberg/copy-files-to-other-repositories/pull/37
+        # The patch also contains a fix for a missing build in v1.0.1.
         #uses: derberg/copy-files-to-other-repositories@v1.0.1
-        uses: hairmare/copy-files-to-other-repositories@recursive-readdir
+        uses: hairmare/copy-files-to-other-repositories@hairmare
         with:
           github_token: ${{ secrets.ORGA_USER_TOKEN }}
           patterns_to_include: "common/node/"
           topics_to_include: "nodejs"
           destination: "./"
-          branches: "^main$"
           committer_username: wellenplan-bot
           committer_email: noreply@github.com
           commit_message: "chore: update Wellenplan Node commons"
