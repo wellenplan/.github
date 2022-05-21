@@ -1,1 +1,1 @@
-[![Wellenplan banner](/assets/banner.png)](https://github.com/wellenplan/wellenplan)
+[![Wellenplan banner](/assets/banner.jpg)](https://github.com/wellenplan/wellenplan)
